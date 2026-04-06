@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Store - Sistema de Estoque</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚲 Bike Store - Sistema de Estoque</h1>
+        
+        <!-- Notificação -->
+        <div id="notification" class="notification" style="display: none;"></div>
+        
+        <!-- Formulário de cadastro -->
+        <div class="form-container">
+            <h2>➕ Adicionar Produto</h2>
+            <form id="productForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCode">Código do Produto *</label>
+                        <input type="text" id="productCode" placeholder="Ex: BIK-001, PEC-123" required>
+                        <small style="color: #666; font-size: 12px;">Formato: XXX-999 (letras maiúsculas + números)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productName">Nome do Produto *</label>
+                        <input type="text" id="productName" placeholder="Ex: Bicicleta Aro 29" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoria</label>
+                        <input type="text" id="productCategory" placeholder="Ex: Bicicletas, Peças, Acessórios">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">Preço (R$) *</label>
+                        <input type="number" id="productPrice" step="0.01" placeholder="0,00" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productQuantity">Quantidade em Estoque *</label>
+                        <input type="number" id="productQuantity" value="0" placeholder="0" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Descrição</label>
+                    <textarea id="productDescription" rows="3" placeholder="Descrição detalhada do produto..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">➕ Adicionar Produto</button>
+            </form>
+        </div>
+        
+        <!-- Barra de busca avançada -->
+        <div class="search-advanced">
+            <h2>🔍 Buscar Produto</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar por código, nome, categoria ou descrição..." class="search-input">
+                <button id="searchButton" class="btn-search">Buscar</button>
+                <button id="clearSearch" class="btn-clear">Limpar</button>
+            </div>
+            <div class="search-tip">
+                <small>💡 Dica: Para buscar por código exato, use o formato correto (ex: BIK-001)</small>
+            </div>
+        </div>
+        
+        <!-- Lista de produtos -->
+        <div class="products-container">
+            <h2>📦 Produtos em Estoque</h2>
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="productsTableBody">
+                    <tr>
+                        <td colspan="8" style="text-align: center;">🔄 Carregando produtos...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
